@@ -1,0 +1,13 @@
+/auto-save-list
+/eln-cache
+/elpa
+/url
+.emacs.desktop
+custom.el
+history
+places
+projects
+recentf
+*.elc
+*.lock
+*~
