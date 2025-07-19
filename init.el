@@ -90,6 +90,11 @@
     (setq which-key-idle-delay 1.0))
   (setq project-mode-line t))
 
+(when (not (or disable-extras (not (not (getenv "DISABLE_EXTRAS")))))
+    (setq-local extras-file (expand-file-name "extras.el" user-emacs-directory))
+    (when (file-exists-p extras-file)
+      (load extras-file)))
+
 (provide 'init)
 
 ;; Local Variables:

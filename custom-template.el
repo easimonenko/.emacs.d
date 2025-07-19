@@ -63,5 +63,7 @@
  ;; If there is more than one, they won't work right.
 )
 
+(defvar disable-extras nil)
+
 (provide 'custom)
 ;;; custom.el ends here

@@ -5,13 +5,13 @@ Simple configuration for GNU Emacs for programming, writing and other stuff usin
 Before using it, copy the =custom-template.el= to =custom.el=. And then, in the command prompt, run:
 
 #+BEGIN_SRC shell
-emacs --init-directory=.emacs.d
+  emacs --init-directory=.emacs.d
 #+END_SRC
 
 You can also move =.emacs.d= to =~/= and then use this configuration as the main configuration by simply launching:
 
 #+BEGIN_SRC shell
-emacs
+  emacs
 #+END_SRC
 
 * Customization
@@ -21,6 +21,38 @@ First, don't forget to copy (not move) =custom-template.el= to =custom.el= so th
 To select a theme, call =customize-themes= in the minibuffer (press =M-x=). Don't forget to press the =Apply and Save= button to apply and save the settings.
 
 To selest a font, call =customize-face= in the minibuffer (press =M-x=), then find face =Default= and edit its parameters. Don't forget to press the =Apply and Save= button to apply and save the settings.
+
+* Extra Packages
+
+Using the built-in =package.el=, you can install additional and useful packages such as =magit=, =markdown-mode=, =vertico=, and others. By default, packages are downloaded from the [GNU ELPA](https://elpa.gnu.org/) and [NonGNU ELPA](https://elpa.nongnu.org/) repositories.
+
+To use the MELPA or MELPA Stable repositories, add the following lines to your custom.el in the custom-set-variables section:
+
+#+BEGIN_SRC elisp
+  '(package-archives
+    '(("gnu" . "https://elpa.gnu.org/packages/")
+      ("nongnu" . "https://elpa.nongnu.org/nongnu/")
+      ("melpa-stable" . "https://stable.melpa.org/packages/")
+      ("melpa" . "https://melpa.org/packages/")))
+#+END_SRC
+
+Keep in mind that if a package is supplied by several repositories, MELPA will have priority due to the specifics of versioning. Therefore, to use MELPA Stable, you need to remove MELPA from the list of repositories.
+
+This setup does not use automatic package installation and updating, as this is contrary to its philosophy. We need Emacs to load quickly and not need an Internet connection. If the required package is missing and you have Internet access, simply install it using =package.el= or another package manager you prefer.
+
+=extras.el= contains advanced settings for some useful extra packages. If you don't need these packages or can't install them now, just run Emacs with the option =DISABLE_EXTRAS=1=:
+
+#+BEGIN_SRC shell
+  DISABLE_EXTRAS=1 emacs
+#+END_SRC
+
+Or add following line to your =custom.el=:
+
+#+BEGIN_SRC elisp
+  (defvar disable-extras t)
+#+END_SRC
+
+Do not add any of your settings to =extras.el=, as this will lead to conflicts when updating this file. For user settings, simply create your own =user-extras.el= and add to it the settings you need for the additional packages you have installed.
 
 * License
 
