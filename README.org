@@ -8,11 +8,19 @@ Before using it, copy the =custom-template.el= to =custom.el=. And then, in the 
 emacs --init-directory=.emacs.d
 #+END_SRC
 
-You can also move =.emacs.d= to =~/.emacs.d= and then use this configuration as the main configuration by simply launching:
+You can also move =.emacs.d= to =~/= and then use this configuration as the main configuration by simply launching:
 
 #+BEGIN_SRC shell
 emacs
 #+END_SRC
+
+* Customization
+
+First, don't forget to copy (not move) =custom-template.el= to =custom.el= so that your settings are saved there and you can receive updates from the upstream repository without conflict.
+
+To select a theme, call =customize-themes= in the minibuffer (press =M-x=). Don't forget to press the =Apply and Save= button to apply and save the settings.
+
+To selest a font, call =customize-face= in the minibuffer (press =M-x=), then find face =Default= and edit its parameters. Don't forget to press the =Apply and Save= button to apply and save the settings.
 
 * License
 
@@ -20,7 +28,6 @@ Copyright (C) 2025 Evgeny Simonenko
 
 This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License along with this program.  If not, see [[http://www.gnu.org/licenses/]].
