@@ -2,6 +2,7 @@
 /eln-cache
 /elpa
 /url
+.#*
 .emacs.desktop
 custom.el
 history
