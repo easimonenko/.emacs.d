@@ -2,6 +2,14 @@
 
 ;; Copyright (c) 2025 Evgeny Simonenko
 
+;; Author: Evgeny Simonenko <easimonenko@gmail.com>
+;; Keywords: emacs init custom
+;; Version: 0.1.2
+;; Package-Requires: ((emacs "29.1"))
+;; Created: July 2025
+;; URL: https://github.com/easimonenko/.emacs.d
+;; Repository: https://github.com/easimonenko/.emacs.d
+
 ;;; License:
 ;;
 ;; This program is free software; you can redistribute it and/or modify
