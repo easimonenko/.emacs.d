@@ -4,7 +4,7 @@
 
 ;; Author: Evgeny Simonenko <easimonenko@gmail.com>
 ;; Keywords: emacs init
-;; Version: 0.1.2
+;; Version: 0.1.3
 ;; Package-Requires: ((emacs "29.1"))
 ;; Created: July 2025
 ;; URL: https://github.com/easimonenko/.emacs.d
@@ -33,6 +33,63 @@
 ;; It works with Emacs version 29.1 or later.
 
 ;;; Code:
+
+;; company
+;; Home Page: https://company-mode.github.io/
+;; GitHub: https://github.com/company-mode/company-mode
+
+(use-package company
+  :config
+  (setq company-minimum-prefix-length 1)
+  (setq company-idle-delay 0.0)
+  (setq company-show-numbers t)
+  (setq company-tooltip-align-annotations t)
+  (setq company-tooltip-flip-when-above t)
+  (delete 'company-dabbrev company-backends)
+  (add-hook 'after-init-hook 'global-company-mode))
+
+;; gited
+;; Home Page: https://elpa.gnu.org/packages/gited.html
+
+(use-package gited
+  :defer t)
+
+;; magit
+;; Home Page: https://magit.vc/
+;; GitHub: https://github.com/magit/magit
+
+(use-package magit
+  :defer t)
+
+;; marginalia
+;; GitHub: https://github.com/minad/marginalia
+
+(use-package marginalia
+  :config
+  (marginalia-mode t))
+
+;; telephone-line
+;; GitHub: https://github.com/dbordak/telephone-line
+
+(use-package telephone-line
+  :config
+  (telephone-line-mode t))
+
+;; vertico
+;; GitHub: https://github.com/minad/vertico
+
+(use-package vertico
+  :custom (vertico-cycle t)
+  :config
+  (vertico-mode t))
+
+(when (< emacs-major-version 30)
+  ;; which-key
+  ;; ELPA: https://elpa.gnu.org/packages/which-key.html
+  (use-package which-key
+    :config
+    (which-key-mode t)
+    (setq which-key-idle-delay 1.0)))
 
 (provide 'extras)
 
