@@ -4,7 +4,7 @@
 
 ;; Author: Evgeny Simonenko <easimonenko@gmail.com>
 ;; Keywords: emacs init
-;; Version: 0.1.2
+;; Version: 0.1.3
 ;; Package-Requires: ((emacs "29.1"))
 ;; Created: July 2025
 ;; URL: https://github.com/easimonenko/.emacs.d
@@ -93,7 +93,10 @@
 (when (not (or disable-extras (not (not (getenv "DISABLE_EXTRAS")))))
     (setq-local extras-file (expand-file-name "extras.el" user-emacs-directory))
     (when (file-exists-p extras-file)
-      (load extras-file)))
+      (load extras-file))
+    (setq-local user-extras-file (expand-file-name "user-extras.el" user-emacs-directory))
+    (when (file-exists-p user-extras-file)
+      (load user-extras-file)))
 
 (provide 'init)
 
