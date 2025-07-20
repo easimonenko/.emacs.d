@@ -24,7 +24,7 @@ To selest a font, call =customize-face= in the minibuffer (press =M-x=), then fi
 
 * Extra Packages
 
-Using the built-in =package.el=, you can install additional and useful packages such as =magit=, =markdown-mode=, =vertico=, and others. By default, packages are downloaded from the [GNU ELPA](https://elpa.gnu.org/) and [NonGNU ELPA](https://elpa.nongnu.org/) repositories.
+Using the built-in =package.el=, you can install additional and useful packages such as =magit=, =markdown-mode=, =vertico=, and others. By default, packages are downloaded from the [[https://elpa.gnu.org/][GNU ELPA]] and [[https://elpa.nongnu.org/][NonGNU ELPA]] repositories.
 
 To use the MELPA or MELPA Stable repositories, add the following lines to your custom.el in the custom-set-variables section:
 
