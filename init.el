@@ -44,6 +44,12 @@
 (if (equal nil (equal major-mode 'org-mode))
     (windmove-default-keybindings 'meta))
 
+(use-package ansi-color
+  :custom
+  (ansi-color-for-compilation-mode t)
+  :hook
+  (compilation-filter . ansi-color-compilation-filter))
+
 (use-package dired
   :defer t
   :config
@@ -83,20 +89,32 @@
   :hook
   (text-mode . visual-line-mode))
 
+(use-package flymake
+  :bind (("M-n" . flymake-goto-next-error)
+         ("M-p" . flymake-goto-prev-error)))
+
 (when (>= emacs-major-version 30)
   (use-package which-key
     :config
     (which-key-mode t)
     (setq which-key-idle-delay 1.0))
-  (setq project-mode-line t))
 
-(when (not (or disable-extras (not (not (getenv "DISABLE_EXTRAS")))))
-    (setq-local extras-file (expand-file-name "extras.el" user-emacs-directory))
-    (when (file-exists-p extras-file)
-      (load extras-file))
-    (setq-local user-extras-file (expand-file-name "user-extras.el" user-emacs-directory))
-    (when (file-exists-p user-extras-file)
-      (load user-extras-file)))
+  (setq project-mode-line t)
+
+  (use-package editorconfig
+    :config
+    (editorconfig-mode t)))
+
+(if (not (or disable-extras (not (not (getenv "DISABLE_EXTRAS")))))
+    (progn
+      (setq-local extras-file (expand-file-name "extras.el" user-emacs-directory))
+      (when (file-exists-p extras-file)
+        (load extras-file))
+      (setq-local user-extras-file (expand-file-name "user-extras.el" user-emacs-directory))
+      (when (file-exists-p user-extras-file)
+        (load user-extras-file)))
+  (progn
+    (setq global-completion-preview-mode t)))
 
 (provide 'init)
 

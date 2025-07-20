@@ -38,7 +38,7 @@
  '(column-number-mode t)
  '(desktop-save-mode t)
  '(eshell-prefer-lisp-functions t)
- '(global-completion-preview-mode t)
+ '(global-completion-preview-mode nil)
  '(global-eldoc-mode t)
  '(indent-tabs-mode nil)
  '(indicate-buffer-boundaries 'left)

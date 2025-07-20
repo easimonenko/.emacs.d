@@ -4,7 +4,7 @@
 
 ;; Author: Evgeny Simonenko <easimonenko@gmail.com>
 ;; Keywords: emacs init
-;; Version: 0.1.2
+;; Version: 0.1.3
 ;; Package-Requires: ((emacs "29.1"))
 ;; Created: July 2025
 ;; URL: https://github.com/easimonenko/.emacs.d
@@ -34,7 +34,7 @@
 
 (setq load-prefer-newer t)
 
-(setq package-enable-at-startup nil)
+(setq package-enable-at-startup t)
 
 (provide 'early-init)
 
