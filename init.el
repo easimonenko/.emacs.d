@@ -4,7 +4,7 @@
 
 ;; Author: Evgeny Simonenko <easimonenko@gmail.com>
 ;; Keywords: emacs init
-;; Version: 0.1.3
+;; Version: 0.1.4
 ;; Package-Requires: ((emacs "29.1"))
 ;; Created: July 2025
 ;; URL: https://github.com/easimonenko/.emacs.d
@@ -109,10 +109,7 @@
     (progn
       (setq-local extras-file (expand-file-name "extras.el" user-emacs-directory))
       (when (file-exists-p extras-file)
-        (load extras-file))
-      (setq-local user-extras-file (expand-file-name "user-extras.el" user-emacs-directory))
-      (when (file-exists-p user-extras-file)
-        (load user-extras-file)))
+        (load extras-file)))
   (progn
     (setq global-completion-preview-mode t)))
 

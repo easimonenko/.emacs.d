@@ -52,7 +52,7 @@ Or add following line to your =custom.el=:
   (defvar disable-extras t)
 #+END_SRC
 
-Do not add any of your settings to =extras.el=, as this will lead to conflicts when updating this file. For user settings, simply create your own =user-extras.el= and add to it the settings you need for the additional packages you have installed.
+Do not add any of your settings to =extras.el=, as this will lead to conflicts when updating this file. For user settings, simply create your own =extras-user.el= and add to it the settings you need for the additional packages you have installed.
 
 * License
 

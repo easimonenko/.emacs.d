@@ -4,7 +4,7 @@
 
 ;; Author: Evgeny Simonenko <easimonenko@gmail.com>
 ;; Keywords: emacs init
-;; Version: 0.1.3
+;; Version: 0.1.4
 ;; Package-Requires: ((emacs "29.1"))
 ;; Created: July 2025
 ;; URL: https://github.com/easimonenko/.emacs.d
@@ -90,6 +90,10 @@
     :config
     (which-key-mode t)
     (setq which-key-idle-delay 1.0)))
+
+(let ((extras-user-file (expand-file-name "extras-user.el" user-emacs-directory)))
+  (when (file-exists-p extras-user-file)
+    (load extras-user-file)))
 
 (provide 'extras)
 
