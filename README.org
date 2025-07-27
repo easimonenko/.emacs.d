@@ -1,4 +1,6 @@
-#+TITLE: .emacs.d using only builtins
+#+TITLE: .emacs.dD with a preference for built-ins, ELPA packages, and packages built from source code
+#+AUTHOR: Evgeny Simonenko
+#+VERSION: 0.1.4
 
 Simple configuration for GNU Emacs for programming, writing and other stuff using only builtins. It is useful when there is no Internet access, you just need to edit the file or as a basis for creating an extended configuration. It works with Emacs version 29.1 or later.
 
@@ -51,6 +53,8 @@ Or add following line to your =custom.el=:
 #+BEGIN_SRC elisp
   (defvar disable-extras t)
 #+END_SRC
+
+** User Extras
 
 Do not add any of your settings to =extras.el=, as this will lead to conflicts when updating this file. For user settings, simply create your own =extras-user.el= and add to it the settings you need for the additional packages you have installed.
 
