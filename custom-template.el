@@ -4,7 +4,7 @@
 
 ;; Author: Evgeny Simonenko <easimonenko@gmail.com>
 ;; Keywords: emacs init custom
-;; Version: 0.1.3
+;; Version: 0.1.4
 ;; Package-Requires: ((emacs "29.1"))
 ;; Created: July 2025
 ;; URL: https://github.com/easimonenko/.emacs.d
@@ -61,7 +61,15 @@
  ;; If there is more than one, they won't work right.
 )
 
+;; Set to t for disabling extras:
+
 (defvar disable-extras nil)
+
+;; Used by Org-Roam Mode templates:
+
+(defvar author "AUTHOR NAME")
+(defvar license "LICENSE")
+(defvar language "LANGUAGE")
 
 (provide 'custom)
 ;;; custom.el ends here

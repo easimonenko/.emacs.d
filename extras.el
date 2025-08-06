@@ -91,6 +91,10 @@
     (which-key-mode t)
     (setq which-key-idle-delay 1.0)))
 
+(let ((extras-org-file (expand-file-name "extras-org.el" user-emacs-directory)))
+  (when (file-exists-p extras-org-file)
+    (load extras-org-file)))
+
 (let ((extras-user-file (expand-file-name "extras-user.el" user-emacs-directory)))
   (when (file-exists-p extras-user-file)
     (load extras-user-file)))

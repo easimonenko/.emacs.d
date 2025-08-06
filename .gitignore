@@ -8,6 +8,7 @@
 .emacs.desktop
 custom.el
 history
+org-roam.db
 places
 places.eld
 projects
