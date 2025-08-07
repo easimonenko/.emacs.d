@@ -4,7 +4,7 @@
 
 ;; Author: Evgeny Simonenko <easimonenko@gmail.com>
 ;; Keywords: emacs init
-;; Version: 0.1.4
+;; Version: 0.1.5
 ;; Package-Requires: ((emacs "29.1"))
 ;; Created: July 2025
 ;; URL: https://github.com/easimonenko/.emacs.d
@@ -100,6 +100,25 @@
     :config
     (which-key-mode t)
     (setq which-key-idle-delay 1.0)))
+
+(when (< emacs-major-version 31)
+  ;; markdown-mode
+  ;; Home Page: https://jblevins.org/projects/markdown-mode/
+  ;; GitHub: https://github.com/jrblevin/markdown-mode
+
+  (use-package markdown-mode
+    :commands (markdown-mode gfm-mode)
+    :custom-face
+    (markdown-code-face ((t (:inherit font-lock-doc-face))))
+    :mode (("README\\.md\\'" . gfm-mode)
+	   ("\\.md\\'" . markdown-mode)
+	   ("\\.markdown\\'" . markdown-mode))
+    :init
+    (setq markdown-command "multimarkdown")
+    (setq markdown-fontify-code-blocks-natively t)
+    :bind (:map markdown-mode-map
+                ("C-c C-e" . markdown-do))
+    :hook ((markdown-mode . display-line-numbers-mode))))
 
 (let ((extras-org-file (expand-file-name "extras-org.el" user-emacs-directory)))
   (when (file-exists-p extras-org-file)

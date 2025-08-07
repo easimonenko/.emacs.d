@@ -4,7 +4,7 @@
 
 ;; Author: Evgeny Simonenko <easimonenko@gmail.com>
 ;; Keywords: emacs init custom
-;; Version: 0.1.4
+;; Version: 0.1.5
 ;; Package-Requires: ((emacs "29.1"))
 ;; Created: July 2025
 ;; URL: https://github.com/easimonenko/.emacs.d
@@ -49,11 +49,13 @@
      (closql :url "https://github.com/magit/closql.git")
      (company :url "https://github.com/company-mode/company-mode.git")
      (dash :url "https://github.com/magnars/dash.el.git")
+     (edit-indirect :url "https://github.com/Fanael/edit-indirect.git")
      (emacsql :url "https://github.com/magit/emacsql.git")
      (epkg :url "https://github.com/emacscollective/epkg.git" :lisp-dir "lisp")
      (llama :url "https://github.com/tarsius/llama.git")
      (magit :url "https://github.com/magit/magit.git")
      (marginalia :url "https://github.com/minad/marginalia.git")
+     (markdown-mode :url "https://github.com/jrblevin/markdown-mode.git")
      (org-roam :url "https://github.com/org-roam/org-roam.git")
      (org-roam-ui :url "https://github.com/org-roam/org-roam-ui.git")
      (simple-httpd :url "https://github.com/skeeto/emacs-web-server.git")

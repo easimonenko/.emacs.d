@@ -1,6 +1,6 @@
-#+TITLE: .emacs.dD with a preference for built-ins, ELPA packages, and packages built from source code
+#+TITLE: .emacs.d with a preference for built-ins, ELPA packages, and packages built from source code
 #+AUTHOR: Evgeny Simonenko
-#+VERSION: 0.1.4
+#+VERSION: 0.1.5
 
 Simple configuration for GNU Emacs for programming, writing and other stuff using only builtins. It is useful when there is no Internet access, you just need to edit the file or as a basis for creating an extended configuration. It works with Emacs version 29.1 or later.
 
@@ -26,20 +26,6 @@ To selest a font, call =customize-face= in the minibuffer (press =M-x=), then fi
 
 * Extra Packages
 
-Using the built-in =package.el=, you can install additional and useful packages such as =magit=, =markdown-mode=, =vertico=, and others. By default, packages are downloaded from the [[https://elpa.gnu.org/][GNU ELPA]] and [[https://elpa.nongnu.org/][NonGNU ELPA]] repositories.
-
-To use the MELPA or MELPA Stable repositories, add the following lines to your custom.el in the custom-set-variables section:
-
-#+BEGIN_SRC elisp
-  '(package-archives
-    '(("gnu" . "https://elpa.gnu.org/packages/")
-      ("nongnu" . "https://elpa.nongnu.org/nongnu/")
-      ("melpa-stable" . "https://stable.melpa.org/packages/")
-      ("melpa" . "https://melpa.org/packages/")))
-#+END_SRC
-
-Keep in mind that if a package is supplied by several repositories, MELPA will have priority due to the specifics of versioning. Therefore, to use MELPA Stable, you need to remove MELPA from the list of repositories.
-
 This setup does not use automatic package installation and updating, as this is contrary to its philosophy. We need Emacs to load quickly and not need an Internet connection. If the required package is missing and you have Internet access, simply install it using =package.el= or another package manager you prefer.
 
 =extras.el= contains advanced settings for some useful extra packages. If you don't need these packages or can't install them now, just run Emacs with the option =DISABLE_EXTRAS=1=:
@@ -57,6 +43,46 @@ Or add following line to your =custom.el=:
 ** User Extras
 
 Do not add any of your settings to =extras.el=, as this will lead to conflicts when updating this file. For user settings, simply create your own =extras-user.el= and add to it the settings you need for the additional packages you have installed.
+
+** Installing from source codes
+
+According to the philosophy of this project, installing packages from sources is preferred. But you can also use the standard mechanism for installing ready-made packages (see below). There are various ways to install from source: standard =package-vc=, [[https://github.com/radian-software/straight.el][straight.el]] and [[https://github.com/emacscollective/borg][Borg]]. This project does not impose any of them, but is pre-configured to use =package-vc= for installing packages and [[https://github.com/emacscollective/epkg][Epkg]] for searching and browsing packages.
+
+Before using Epkg, you need to get the Epkgs database:
+
+#+BEGIN_SRC shell
+  git clone https://github.com/emacsmirror/epkgs.git ~/.emacs.d/epkgs
+#+END_SRC
+
+For example, let's say we need to install the =markdown-mode= package. First, find it in the Epkgs database:
+
+#+BEGIN_SRC emacs-lisp
+  epkg-describe-package
+  markdown-mode
+#+END_SRC
+
+Check in the opened Epkg buffer to see if all dependencies are installed. If not all of them, then install them first, and then the required package:
+
+#+BEGIN_SRC emacs-lisp
+  (package-vc-install '(edit-indirect :url "https://github.com/Fanael/edit-indirect.git"))
+  (package-vc-install '(markdown-mode :url "https://github.com/jrblevin/markdown-mode.git"))
+#+END_SRC
+
+** Installing from ELPA and MELPA
+
+Using the built-in =package.el=, you can install additional and useful packages such as =magit=, =markdown-mode=, =vertico=, and others. By default, packages are downloaded from the [[https://elpa.gnu.org/][GNU ELPA]] and [[https://elpa.nongnu.org/][NonGNU ELPA]] repositories.
+
+To use the MELPA or MELPA Stable repositories, add the following lines to your custom.el in the custom-set-variables section:
+
+#+BEGIN_SRC elisp
+  '(package-archives
+    '(("gnu" . "https://elpa.gnu.org/packages/")
+      ("nongnu" . "https://elpa.nongnu.org/nongnu/")
+      ("melpa-stable" . "https://stable.melpa.org/packages/")
+      ("melpa" . "https://melpa.org/packages/")))
+#+END_SRC
+
+Keep in mind that if a package is supplied by several repositories, MELPA will have priority due to the specifics of versioning. Therefore, to use MELPA Stable, you need to remove MELPA from the list of repositories.
 
 * License
 
