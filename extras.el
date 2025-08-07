@@ -48,6 +48,16 @@
   (delete 'company-dabbrev company-backends)
   (add-hook 'after-init-hook 'global-company-mode))
 
+;; epkg
+;; GitHub: https://github.com/emacscollective/epkg
+;; Package Database: https://github.com/emacsmirror/epkgs
+
+(use-package epkg
+  :defer t
+  :init
+  (setq epkg-database-connector
+        (if (>= emacs-major-version 29) 'sqlite-builtin 'sqlite-module)))
+
 ;; gited
 ;; Home Page: https://elpa.gnu.org/packages/gited.html
 

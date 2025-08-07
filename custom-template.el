@@ -46,9 +46,11 @@
  '(menu-bar-mode nil)
  '(package-vc-selected-packages
    '((buttercup :url "https://github.com/jorgenschaefer/emacs-buttercup.git")
+     (closql :url "https://github.com/magit/closql.git")
      (company :url "https://github.com/company-mode/company-mode.git")
      (dash :url "https://github.com/magnars/dash.el.git")
      (emacsql :url "https://github.com/magit/emacsql.git")
+     (epkg :url "https://github.com/emacscollective/epkg.git" :lisp-dir "lisp")
      (llama :url "https://github.com/tarsius/llama.git")
      (magit :url "https://github.com/magit/magit.git")
      (marginalia :url "https://github.com/minad/marginalia.git")
